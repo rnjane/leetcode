@@ -3,19 +3,19 @@ Given a string s, return the longest palindromic substring in s.
 """
 class Solution:
     """
-    - a palindrome can be identified by expanding from its center.
+    - a palindrome can be identified by expanding from its center.(for odd numbered palindromes)
     1. starting from index 1 to second last index:
-        - try checking if elements on either sides are equal.
+        - try checking if elements on either sides of the current index are equal.
         - if equal:
             record this as a palindrome.
             continue until they are not, or you runout of characters
-            if the recordedpalindrome is bigger than the current biggest, assign it as current_big
+            if the recorded palindrome is bigger than the current biggest, assign it as current_big
         - if not:
             continue
-    2. starting from index 1 to third last:
-        - check of current_index is equal to next element.
+    2. starting from index 0 to second last index:(for even numbered palindromes)
+        - check if current_index is equal to next element.
         - if equal:
-            expand outwards until it is not, while recording the isPalindrome
+            expand outwards until it is not, or you run out of elements, while recording the palindrome
         - if not:
             continue
     """
@@ -43,6 +43,7 @@ class Solution:
 
         longest_palindromic_substring = ins[0]
         for index, _ in enumerate(ins):
+            # this is to check for a palindrome of an odd length
             left = index - 1
             right = index + 1
 
@@ -60,6 +61,7 @@ class Solution:
         longest_palindromic_substring2 = ins[0]
 
         for index, _ in enumerate(ins):
+            # this is to check for a palindrome of an even length
             left = index
             right = index + 1
             if index == len(ins) - 1:
