@@ -64,7 +64,7 @@ import math
 class Solution:
     """
     - the idea is creating a stack, and adding nodes with their mins and maxes.
-    as we go through the tree, we check of a node is within its boundaries.
+    as we go through the tree, we check if a node is within its boundaries.
     """
     def isValidBST(self, root: TreeNode) -> bool:
         if not root:
